@@ -105,10 +105,10 @@ public class BuildingManager : MonoBehaviour
         {
             ghostSeperateBuild();
 
-            if(isGhostInValidPosition)
+            if (isGhostInValidPosition)
             {
                 Collider[] overlapColliders = Physics.OverlapBox(ghostBuildGameobject.transform.position, new Vector3(2f, 2f, 2f), ghostBuildGameobject.transform.rotation);
-                foreach(Collider overlapCollider in overlapColliders)
+                foreach (Collider overlapCollider in overlapColliders)
                 {
                     if (overlapCollider.gameObject != ghostBuildGameobject && overlapCollider.transform.root.CompareTag("Buildables"))
                     {
@@ -308,7 +308,7 @@ public class BuildingManager : MonoBehaviour
                     lastHitDestroyTransform = hit.transform.root;
 
                     lastHitMaterials.Clear();
-                    foreach(MeshRenderer lastHitMeshRenderer in lastHitDestroyTransform.GetComponentsInChildren<MeshRenderer>())
+                    foreach (MeshRenderer lastHitMeshRenderer in lastHitDestroyTransform.GetComponentsInChildren<MeshRenderer>())
                     {
                         lastHitMaterials.Add(lastHitMeshRenderer.material);
                     }
@@ -344,7 +344,7 @@ public class BuildingManager : MonoBehaviour
     {
         if (lastHitDestroyTransform)
         {
-            foreach(Connector connector in lastHitDestroyTransform.GetComponentsInChildren<Connector>())
+            foreach (Connector connector in lastHitDestroyTransform.GetComponentsInChildren<Connector>())
             {
                 connector.gameObject.SetActive(false);
                 connector.updateConnectors(true);
